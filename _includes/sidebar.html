@@ -28,26 +28,31 @@
         <i class="sidebar-icon fas fa-location-arrow"></i>
         <a class="contact-info u-location" href="https://www.google.com/maps/search/{{ site.location }}">{{ site.location }}</a>
       </li>
-    {%- endif %}
-  </ul>
-</div>
+      {%- endif %}
+    </ul>
+  </div>
 
-{% if site.subscribe != false -%}
-<div class="sidebar-section feed-subscribe">
-  <a href="{{ 'feed.xml' | relative_url }}">
-    <i class="sidebar-icon fas fa-rss"></i><span>Subscribe</span>
-  </a>
-</div>
-{%- endif %}
-
-{% if site.data.social -%}
+  
+  {% if site.data.social -%}
   <div class="sidebar-section">
     <ul class="social-icons">
       {% for social in site.data.social -%}
-        <li>
-          <a class="social-icon" href="{{ social.url }}"><i class="{{ social.icon | default: 'fas fa-link' }} fa-2x" title="{{ social.title }}"></i></a>
-        </li>
+      <li>
+        <a class="social-icon" href="{{ social.url }}"><i class="{{ social.icon | default: 'fas fa-link' }} fa-2x" title="{{ social.title }}"></i></a>
+      </li>
       {%- endfor %}
+    </ul>
+  </div>
+  <div>
+  <ul>
+    <li>javascript</li>
+    <li>asp</li>
+    <li>github</li>
+    <li>php</li>
+    <li>mssql</li>
+    <li>mysql</li>
+    <li>python</li>
+    <li>today</li>
     </ul>
   </div>
 {%- endif %}
