@@ -1,12 +1,18 @@
-- title: About
-  url: /about/
-- title: Years
-  url: /years/
-- title: Categories
-  url: /categories/
-- title: Tags
+- title: javascript
+  url: /javascript/
+- title: asp
+  url: /asp/
+- title: Github
+  url: /Github/
+- title: php
+  url: /hp/
+- title: Mssql
+  url: /Mssql/
+- title: Mysql
+  url: /Mysql/
+- title: Python
   url: /tags/
-- title: More
+- title: today
   sublinks:
     - title: FAQ
       url: /faq/
