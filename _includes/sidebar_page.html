@@ -1,22 +1,93 @@
 
-{% if site/asp/index.html %}
-  <div>
-  <ul>
-    <li><a href="/javascript/">javascript</a></li>
-    <li><a href="/asp/">asp</a></li>
-    </ul>
-  </div>
-{% else %}
-<div>
-<ul>
-  <li><a href="/javascript/">javascript</a></li>
-  <li><a href="/asp/">asp</a></li>
-  <li><a href="/github/">github</a></li>
-  <li><a href="/php/">php</a></li>
-  <li><a href="/mssql/">mssql</a></li>
-  <li><a href="/mysql/">mysql</a></li>
-  <li><a href="/python/">python</a></li>
-  <li><a href="/today/">today</a></li>
-  </ul>
-</div>
-{%- endif %}
+<script>
+       window.onload = function () {
+            const currentUrl = window.location.href; // 현재 URL 가져오기
+            const jElement = document.getElementById('j'); // ID가 'message'인 요소 가져오기
+            const aElement = document.getElementById('a'); // ID가 'a'인 요소 가져오기
+            const gElement = document.getElementById('g'); 
+            const phElement = document.getElementById('ph'); 
+            const msElement = document.getElementById('ms'); 
+            const myElement = document.getElementById('my'); 
+            const pyElement = document.getElementById('py'); 
+            const toElement = document.getElementById('to'); 
+
+
+            if (currentUrl.includes('javascript')) {
+                jElement.style.display = "block";
+            } else if(currentUrl.includes('asp')){
+                aElement.style.display = "block"; // 'a' 요소 보이기
+            } else if(currentUrl.includes('github')){
+                gElement.style.display = "block"; 
+            } else if(currentUrl.includes('php')){
+                phElement.style.display = "block"; // 'a' 요소 보이기
+            } else if(currentUrl.includes('mssql')){
+                msElement.style.display = "block";           
+            } else if(currentUrl.includes('mysql')){
+                myElement.style.display = "block"; // 'a' 요소 보이기
+            } else if(currentUrl.includes('python')){
+                pyElement.style.display = "block"; 
+            } else if(currentUrl.includes('today')){
+                toElement.style.display = "block"; 
+            } else {
+                jElement.style.display = "none"; 
+                aElement.style.display = "none"; 
+                gElement.style.display = "none";
+                phElement.style.display = "none"; 
+                msElement.style.display = "none"; 
+                myElement.style.display = "none"; 
+                pyElement.style.display = "none";
+                toElement.style.display = "none";   
+            }
+        };
+</script>
+
+    <div>
+      <ul style="font-size: 18px;">
+        <li><a href="/javascript/">javascript</a></li>
+        <li><a href="/asp/">asp</a></li>
+        <li><a href="/github/">github</a></li>
+        <li><a href="/php/">php</a></li>
+        <li><a href="/mssql/">mssql</a></li>
+        <li><a href="/mysql/">mysql</a></li>
+        <li><a href="/python/">python</a></li>
+        <li><a href="/today/">today</a></li>
+      </ul>
+      <ul id="j" style="display:none">
+        <li><a href="/javascript/">javascript</a></li>
+        <li><a href="/javascript/javascript1.html">javascript_develop</a></li>
+      </ul>
+      <ul id="a" style="display:none">
+        <li><a href="/asp/">asp</a></li>
+        <li><a href="/asp/asp1.html">asp_develop</a></li>
+      </ul>
+      <ul id="g" style="display:none">
+        <li><a href="/github/">github</a></li>
+        <li><a href="/github/github1.html">github_develop</a></li>
+      </ul>
+      <ul id="ph" style="display:none">
+        <li><a href="/php/">php</a></li>
+        <li><a href="/php/php1.html">php_develop</a></li>
+      </ul>
+      <ul id="ms" style="display:none">
+        <li><a href="/mssql/">mssql</a></li>
+        <li><a href="/mssql/mssql1">mssql_develop</a></li>
+      </ul>
+      <ul id="my" style="display:none">
+        <li><a href="/mysql/">mysql</a></li>
+        <li><a href="/mysql/mysql1.html">mysql_develop</a></li>
+      </ul>
+      <ul id="py" style="display:none">
+        <li><a href="/python/">python</a></li>
+        <li><a href="/python/python1.html">python_develop</a></li>
+      </ul>
+      <ul id="to" style="display:none">
+        <li><a href="/today/">today</a></li>
+        <li><a href="/faq/">faq</a></li>
+        <li><a href="/docs/">docs</a></li>
+      </ul>
+    </div>
+
+    <style>
+      ul{list-style-type: none;}
+
+    </style>

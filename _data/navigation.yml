@@ -2,16 +2,16 @@
   url: /javascript/
 - title: asp
   url: /asp/
-- title: Github
-  url: /Github/
+- title: github
+  url: /github/
 - title: php
-  url: /hp/
-- title: Mssql
-  url: /Mssql/
-- title: Mysql
-  url: /Mysql/
-- title: Python
-  url: /tags/
+  url: /php/
+- title: mssql
+  url: /mssql/
+- title: mysql
+  url: /mysql/
+- title: python
+  url: /python/
 - title: today
   sublinks:
     - title: FAQ
