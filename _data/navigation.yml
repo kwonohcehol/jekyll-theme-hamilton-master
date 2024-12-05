@@ -1,5 +1,9 @@
 - title: javascript
-  url: /javascript/
+  sublinks:
+  - itle: javascript
+    url: /javascript/
+  - itle: javascript
+    url: /javascript/javascript1.html
 - title: asp
   url: /asp/
 - title: github
