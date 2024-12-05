@@ -4,4 +4,4 @@ title: python
 permalink: /python/python1.html
 ---
 
-none
+nonedddd
