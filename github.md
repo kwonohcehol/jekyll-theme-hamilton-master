@@ -4,4 +4,4 @@ title: github
 permalink: /github/
 ---
 
-Another minimal style of Jekyll theme for writers.
+이 페이지는 Github 관련 페이지 입니다.

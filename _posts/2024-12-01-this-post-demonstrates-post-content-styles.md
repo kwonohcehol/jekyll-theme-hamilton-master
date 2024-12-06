@@ -2,8 +2,7 @@
 layout: post
 toc: true
 title: "Git push"
-categories: junk
-tags: [markdown, css, html]
+tags: [markdown, git, github]
 author:
   - Bart Simpson
   - Nelson Mandela Muntz
