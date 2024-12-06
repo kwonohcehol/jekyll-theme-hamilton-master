@@ -1,7 +1,7 @@
 ---
 layout: post
 toc: true
-title: "This post demonstrates post content styles"
+title: "Git push"
 categories: junk
 tags: [markdown, css, html]
 author:
@@ -11,106 +11,60 @@ author:
 
 
 
-## Some great heading (h2)
+## 로컬 커밋 수정 후 원격 저장소에 강제 Push하는 방법
 
-Proin convallis mi ac felis pharetra aliquam. Curabitur dignissim accumsan rutrum. In arcu magna, aliquet vel pretium et, molestie et arcu.
+아래 오류 메시지는 로컬 브랜치와 원격 브랜치가 각각 다른 커밋을 가지고 있어 분기되었음을 의미한다. 
+{% highlight ruby %}
+On branch main
+Your branch and 'origin/main' have diverged,
+and have 1 and 1 different commits each, respectively.
+  (use "git pull" to merge the remote branch into yours)
+{% endhighlight %}
 
-Mauris lobortis nulla et felis ullamcorper bibendum. Phasellus et hendrerit mauris. Proin eget nibh a massa vestibulum pretium. Suspendisse eu nisl a ante aliquet bibendum quis a nunc. Praesent varius interdum vehicula. Aenean risus libero, placerat at vestibulum eget, ultricies eu enim. Praesent nulla tortor, malesuada adipiscing adipiscing sollicitudin, adipiscing eget est.
 
-## Another great heading (h2)
+## 원격 저장소의 변경사항을 살리면서 해결하기
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce bibendum neque eget nunc mattis eu sollicitudin enim tincidunt. Vestibulum lacus tortor, ultricies id dignissim ac, bibendum in velit.
+1. 원격 변경사항 가져오기: 먼저, 원격 저장소의 변경사항을 로컬로 가져온다.
+{% highlight ruby %}
+git fetch origin
+{% endhighlight %}
 
-### Some great subheading (h3)
+2. 변경사항 통합: 이후,  git rebase 또는 git merge를 사용하여 로컬 변경사항을 원격 저장소의 변경사항과 통합한다.
+-Rebase 사용하기: 로컬 커밋을 원격 저장소의 최신 커밋 위에 재배치한다.
+{% highlight ruby %}
+git rebase origin/main
+{% endhighlight %}
+-Merge 사용하기: 로컬과 원격의 변경사항을 병합한다.
+{% highlight ruby %}
+git merge origin/main
+{% endhighlight %}
 
-Proin convallis mi ac felis pharetra aliquam. Curabitur dignissim accumsan rutrum. In arcu magna, aliquet vel pretium et, molestie et arcu. Mauris lobortis nulla et felis ullamcorper bibendum.
+3.충돌 해결: 충돌이 발생하면, Git은 충돌을 해결하라는 메시지를 표시한다. 충돌을 해결한 후, 재배치를 계속하거나 병합을 완료한다.
 
-Phasellus et hendrerit mauris. Proin eget nibh a massa vestibulum pretium. Suspendisse eu nisl a ante aliquet bibendum quis a nunc.
+4.변경사항 반영하기: 모든 충돌을 해결했다면, 최종적으로 변경사항을 원격 저장소에 반영한다.
+{% highlight ruby %}
+git push origin main
+{% endhighlight %}
+
+### 원격 저장소의 변경사항을 무시하고 로컬 변경사항만 반영하기
+
+1. 강제 Push 실행: 원격 저장소에 있는 변경사항과 상관없이 로컬 변경사항을 원격 저장소에 강제로 반영한다.
 
 ### Some great subheading (h3)
 
 Praesent varius interdum vehicula. Aenean risus libero, placerat at vestibulum eget, ultricies eu enim. Praesent nulla tortor, malesuada adipiscing adipiscing sollicitudin, adipiscing eget est.
 
-> This quote will *change* your life. It will reveal the <i>secrets</i> of the universe, and all the wonders of humanity. Don't <em>misuse</em> it.
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce bibendum neque eget nunc mattis eu sollicitudin enim tincidunt.
-
-### Some great subheading (h3)
-
-Vestibulum lacus tortor, ultricies id dignissim ac, bibendum in velit. Proin convallis mi ac felis pharetra aliquam. Curabitur dignissim accumsan rutrum.
-
-```html
-<html>
-  <head>
-  </head>
-  <body>
-    <p>Hello, World!</p>
-  </body>
-</html>
-```
+{% highlight ruby %}
+git push --force-with-lease origin main
+{% endhighlight %}
 
 
-In arcu magna, aliquet vel pretium et, molestie et arcu. Mauris lobortis nulla et felis ullamcorper bibendum. Phasellus et hendrerit mauris.
+### 주의사항
 
-#### You might want a sub-subheading (h4)
+원격 저장소의 변경사항을 살리고자 할 때는 첫 번째 방법을 선택하고, 원격 저장소의 변경사항에 관계없이 로컬 변경사항만 반영하려 할 때는 두 번째 방법을 사용한다.
 
-In arcu magna, aliquet vel pretium et, molestie et arcu. Mauris lobortis nulla et felis ullamcorper bibendum. Phasellus et hendrerit mauris.
+강제 push(--force)는 원격 저장소의 커밋 히스토리를 변경할 수 있으므로, 협업 중인 다른 사람들의 작업에 영향을 줄 수 있다. 이러한 작업을 수행하기 전에는 팀원들과의 충분한 소통이 중요하다.
 
-In arcu magna, aliquet vel pretium et, molestie et arcu. Mauris lobortis nulla et felis ullamcorper bibendum. Phasellus et hendrerit mauris.
+이 가이드를 통해, 로컬과 원격 저장소 간의 분기된 상황을 해결하는 방법을 이해하고 적절히 적용할 수 있다.
 
-#### But it's probably overkill (h4)
-
-In arcu magna, aliquet vel pretium et, molestie et arcu. Mauris lobortis nulla et felis ullamcorper bibendum. Phasellus et hendrerit mauris.
-
-##### Could be a smaller sub-heading, `pacman` (h5)
-
-In arcu magna, aliquet vel pretium et, molestie et arcu. Mauris lobortis nulla et felis ullamcorper bibendum. Phasellus et hendrerit mauris.
-
-###### Small yet significant sub-heading  (h6)
-
-In arcu magna, aliquet vel pretium et, molestie et arcu. Mauris lobortis nulla et felis ullamcorper bibendum. Phasellus et hendrerit mauris.
-
-### Oh hai, an unordered list!!
-
-In arcu magna, aliquet vel pretium et, molestie et arcu. Mauris lobortis nulla et felis ullamcorper bibendum. Phasellus et hendrerit mauris.
-
-- First item, yo
-- Second item, dawg
-- Third item, what what?!
-- Fourth item, fo sheezy my neezy
-
-### Oh hai, an ordered list!!
-
-In arcu magna, aliquet vel pretium et, molestie et arcu. Mauris lobortis nulla et felis ullamcorper bibendum. Phasellus et hendrerit mauris.
-
-1. First item, yo
-2. Second item, dawg
-3. Third item, what what?!
-4. Fourth item, fo sheezy my neezy
-
-
-
-## Headings are cool! (h2)
-
-Proin eget nibh a massa vestibulum pretium. Suspendisse eu nisl a ante aliquet bibendum quis a nunc. Praesent varius interdum vehicula. Aenean risus libero, placerat at vestibulum eget, ultricies eu enim. Praesent nulla tortor, malesuada adipiscing adipiscing sollicitudin, adipiscing eget est.
-
-Praesent nulla tortor, malesuada adipiscing adipiscing sollicitudin, adipiscing eget est.
-
-Proin eget nibh a massa vestibulum pretium. Suspendisse eu nisl a ante aliquet bibendum quis a nunc.
-
-### Tables
-
-Title 1               | Title 2               | Title 3               | Title 4
---------------------- | --------------------- | --------------------- | ---------------------
-lorem                 | lorem ipsum           | lorem ipsum dolor     | lorem ipsum dolor sit
-lorem ipsum dolor sit | lorem ipsum dolor sit | lorem ipsum dolor sit | lorem ipsum dolor sit
-lorem ipsum dolor sit | lorem ipsum dolor sit | lorem ipsum dolor sit | lorem ipsum dolor sit
-lorem ipsum dolor sit | lorem ipsum dolor sit | lorem ipsum dolor sit | lorem ipsum dolor sit
-
-
-Title 1 | Title 2 | Title 3 | Title 4
---- | --- | --- | ---
-lorem | lorem ipsum | lorem ipsum dolor | lorem ipsum dolor sit
-lorem ipsum dolor sit amet | lorem ipsum dolor sit amet consectetur | lorem ipsum dolor sit amet | lorem ipsum dolor sit
-lorem ipsum dolor | lorem ipsum | lorem | lorem ipsum
-lorem ipsum dolor | lorem ipsum dolor sit | lorem ipsum dolor sit amet | lorem ipsum dolor sit amet consectetur
+원본 : https://wikidocs.net/232164
