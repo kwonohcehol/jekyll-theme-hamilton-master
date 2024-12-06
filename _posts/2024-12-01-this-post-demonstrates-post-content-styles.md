@@ -46,20 +46,17 @@ git merge origin/main
 git push origin main
 {% endhighlight %}
 
-### 원격 저장소의 변경사항을 무시하고 로컬 변경사항만 반영하기
+## 원격 저장소의 변경사항을 무시하고 로컬 변경사항만 반영하기
 
 1. 강제 Push 실행: 원격 저장소에 있는 변경사항과 상관없이 로컬 변경사항을 원격 저장소에 강제로 반영한다.
-
-### Some great subheading (h3)
-
-Praesent varius interdum vehicula. Aenean risus libero, placerat at vestibulum eget, ultricies eu enim. Praesent nulla tortor, malesuada adipiscing adipiscing sollicitudin, adipiscing eget est.
 
 {% highlight ruby %}
 git push --force-with-lease origin main
 {% endhighlight %}
 
+이 방법을 사용할 때는 --force-with-lease 옵션을 사용하는 것이 좋다. 이 옵션은 로컬 저장소가 원격 저장소의 최신 상태를 아직 반영하지 않았을 때 강제 push를 방지하므로, 데이터 손실 위험을 줄여준다.
 
-### 주의사항
+## 주의사항
 
 원격 저장소의 변경사항을 살리고자 할 때는 첫 번째 방법을 선택하고, 원격 저장소의 변경사항에 관계없이 로컬 변경사항만 반영하려 할 때는 두 번째 방법을 사용한다.
 
