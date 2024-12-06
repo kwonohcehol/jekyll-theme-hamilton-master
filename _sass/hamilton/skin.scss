@@ -4,12 +4,13 @@ body {
   color: $text-color;
   background-color: $background-color;
 }
+li { list-style-type: none;}
 
 a {
-  color: $link-base-color;
+  color: $side-color;
 
   &:visited {
-    color: $link-visited-color;
+    color: $side-visited-color;
   }
 
   &:hover {
@@ -103,6 +104,7 @@ table {
 .post-list {
   li {
     border-bottom-color: $border-color-light;
+    list-style-type: none;
   }
 }
 
@@ -177,9 +179,22 @@ ul.post-tags {
   ul li a {
     color: $text-color;
     border-color: $border-color;
-
+    list-style-type: none;
     &:hover {
       background-color: $border-color-light;
     }
   }
+}
+#side_font {
+  font-weight: bold;
+  color: $side-color;
+
+  &:visited {
+    color: $side-visited-color;
+  }
+
+  &:hover {
+    color: $text-color;
+  }
+
 }
